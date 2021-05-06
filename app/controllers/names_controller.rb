@@ -10,7 +10,7 @@ class NamesController < ApplicationController
 
   def number_guess
     number = 20
-    guess = params[:number].to_i
+    guess = params[:guess].to_i
 
     if guess < number
       render json: {message: "You are too low..."}
