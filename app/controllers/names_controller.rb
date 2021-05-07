@@ -8,10 +8,22 @@ class NamesController < ApplicationController
     end
   end
 
-  def number_guess
+  # def number_guess
+  #   number = 20
+  #   guess = params[:guess].to_i
+
+  #   if guess < number
+  #     render json: {message: "You are too low..."}
+  #   elsif guess > number
+  #     render json: {message: "you are too high..."}
+  #   elsif guess == number
+  #     render json: {message: "You win!!!"}
+  #   end
+  # end
+
+  def guess
     number = 20
     guess = params[:guess].to_i
-
     if guess < number
       render json: {message: "You are too low..."}
     elsif guess > number
@@ -20,4 +32,27 @@ class NamesController < ApplicationController
       render json: {message: "You win!!!"}
     end
   end
+
+  def post_guess
+    number = 20
+    guess = params[:guess].to_i
+    if guess < number
+      render json: {message: "You are too low..."}
+    elsif guess > number
+      render json: {message: "you are too high..."}
+    elsif guess == number
+      render json: {message: "You win!!!"}
+    end
+  end
+
+  def login
+    username = params[:username]
+    password = params[:password]
+    if username == "hugh" && password == "swordfish"
+      render json: {message: "Valid Cridentials."}
+    else
+      render json: {message: "invalid credentials."}
+    end
+  end
+
 end
